@@ -124,8 +124,11 @@ fun WeatherDetails(data: WeatherModel) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        val kelvinTemp = data.main.temp
+        val celsiusTemp = (kelvinTemp - 273.15).toBigDecimal().setScale(0, java.math.RoundingMode.HALF_EVEN)
+
         Text(
-            text = "${data.main.temp} °C",
+            text = "${celsiusTemp} °C",
             fontSize = 56.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
